@@ -1,19 +1,17 @@
 import express from 'express';
+import { getUsers, createUser, getUser, deleteUser, updateUser } from '../controllers/users.js';
 
 const router = express.Router();
 
-const users = [
-	{
-		firstname: "John",
-		lastname: "Doe",
-		age: 30
-	}
-];
-
 //All routes in here are starting with /users
-router.get('/', (req, res) => {
-	console.log(users);
-	res.send(users);
-});
+router.get('/', getUsers);
+
+router.post('/', createUser);
+
+router.get('/:id', getUser);
+
+router.delete('/:id', deleteUser);
+
+router.patch('/:id', updateUser);
 
 export default router;
