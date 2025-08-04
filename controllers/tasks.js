@@ -7,7 +7,7 @@ export const getTodos = (req, res) => {
 export const createTodo = (req, res) => {
 	const todo = req.body;
 	
-	todos.push({ ...todo, id: uuidv4() });
+	todos.push(todo);
 	res.send(`User has added ${todo.taskName} to the database!`);
 };
 
